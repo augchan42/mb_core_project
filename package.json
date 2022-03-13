@@ -1,5 +1,5 @@
 {
-  "name": "mb_core_project_assets",
+  "name": "minter_assets",
   "version": "0.1.0",
   "description": "Internet Computer starter application",
   "keywords": ["Internet Computer", "Motoko", "JavaScript", "Canister"],

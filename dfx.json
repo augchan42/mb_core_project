@@ -1,19 +1,19 @@
 {
   "canisters": {
-    "mb_core_project": {
-      "main": "src/mb_core_project/main.mo",
+    "minter": {
+      "main": "src/minter/main.mo",
       "type": "motoko"
     },
-    "mb_core_project_assets": {
+    "minter_assets": {
       "dependencies": [
-        "mb_core_project"
+        "minter"
       ],
       "frontend": {
-        "entrypoint": "src/mb_core_project_assets/src/index.html"
+        "entrypoint": "src/minter_assets/src/index.html"
       },
       "source": [
-        "src/mb_core_project_assets/assets",
-        "dist/mb_core_project_assets/"
+        "src/minter_assets/assets",
+        "dist/minter_assets/"
       ],
       "type": "assets"
     }
