@@ -4,6 +4,7 @@ export const idlFactory = ({ IDL }) => {
     'approve' : IDL.Func([IDL.Principal, TokenId], [], []),
     'balanceOf' : IDL.Func([IDL.Principal], [IDL.Opt(IDL.Nat)], []),
     'getApproved' : IDL.Func([IDL.Nat], [IDL.Principal], []),
+    'getRandomNumber' : IDL.Func([], [IDL.Nat], []),
     'isApprovedForAll' : IDL.Func(
         [IDL.Principal, IDL.Principal],
         [IDL.Bool],

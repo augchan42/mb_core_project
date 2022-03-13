@@ -7,6 +7,10 @@ import Principal "mo:base/Principal";
 import Array "mo:base/Array";
 import Iter "mo:base/Iter";
 import T "dip721_types";
+import Random "mo:base/Random";
+import Nat8 "mo:base/Nat8";
+import X "xorshift128plus";
+
 
 actor class DRC721(_name : Text, _symbol : Text) {
 
@@ -107,7 +111,7 @@ actor class DRC721(_name : Text, _symbol : Text) {
     };
 
     // Mint without authentication
-    public func mint_principal(uri : Text, principal : Principal) : async Nat {
+    public func mint_principal(uri : Text, principal : Principal) : async Nat {        
         tokenPk += 1;
         _mint(principal, tokenPk, uri);
         return tokenPk;
@@ -118,6 +122,22 @@ actor class DRC721(_name : Text, _symbol : Text) {
         tokenPk += 1;
         _mint(caller, tokenPk, uri);
         return tokenPk;
+    };
+
+    public func getRandomNumber() : async Nat {
+        let r = Random.Finite(await Random.blob());
+        let n = 46;//number of assets
+        // let result = r.range(Nat8.fromNat(n));
+        let result = r.byte();
+        switch (result) {
+            case (?r) { return Nat8.toNat(r) % (n - 1) + 1};
+            case null {
+                return 0;
+            };
+        };
+        
+        // return X.xorshift128plus() % (n - 1) + 1;
+        
     };
 
 

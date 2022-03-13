@@ -3,6 +3,7 @@ service : {
   approve: (principal, TokenId) -> ();
   balanceOf: (principal) -> (opt nat);
   getApproved: (nat) -> (principal);
+  getRandomNumber: () -> (nat);
   isApprovedForAll: (principal, principal) -> (bool);
   mint: (text) -> (nat);
   mint_principal: (text, principal) -> (nat);
